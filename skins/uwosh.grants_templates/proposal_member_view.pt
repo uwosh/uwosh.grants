@@ -1,0 +1,89 @@
+<html metal:use-macro="context/@@standard_macros/page">
+<body>
+
+<metal:slot metal:fill-slot="body" i18n:domain="cmf_default">
+<h1 id="parent-fieldname-title" class="documentFirstHeading kssattr-atfieldname-title kssattr-templateId-kss_generic_macros kssattr-macro-title-field-view" tal:content="context/Title"></h1>
+<div tal:define="temp1 python:string('uwosh.grants.reviewer');temp2 python:string('uwosh.grants.panel');lu python:user.getUserName();un python:user.getProperty('fullname', '');dir python:string('uwosh.grants.director');
+rs python: context.portal_workflow.getInfoFor(context, 'review_state');" tal:condition="python:lu in here.listCreators() or dir in user.getRoles() or lu==here.primaryFacultyAdvisorId or un==here.primaryFacultyAdvisorName or (temp2 in user.getRoles()  and rs in ['panelReview'])">
+
+<div id="instructions" tal:define="rs python: context.portal_workflow.getInfoFor(context,'review_state');" tal:condition="python:rs in ['private']">
+Step 1: Done. To change the information below click on the "edit" tab above.<br/>
+<span style="color:red; font-weight:bold">*****Reminder & Warning*****</span><br/> Uploading your document (step 2) does NOT complete your submission.  Make sure you are following the <a href="../../instructions-and-help/proposers/submitting-a-proposal" target="_blank">instructions</a> (opens in new tab/window), especially steps 8 & 9.<br/><span style="color:red; font-weight:bold">****************************</span><br/>
+<b>STEP 2</b>: <a href="file" tal:attributes="href string:createObject?type_name=File">Upload your proposal in .pdf format.</a>  To replace an erroneous file click on the file in the list at left and then replace it using the "edit" tab.<br/>  
+Step 3: will be to submit the proposal.<br/> 
+Additional details and help are available at right.
+</div>
+<div id="submitted" tal:define="rs python: context.portal_workflow.getInfoFor(context, 'review_state');"
+tal:condition="python:rs in ['directorReview']">
+SUBMITTED:  Your proposal has now been submitted to the director for assignment to reviewers.
+  You will be notified when a decision is made.</div>
+<div id="underreview" tal:define="rs python: context.portal_workflow.getInfoFor(context, 'review_state');"
+tal:condition="python:rs in ['groupReview', 'panelReview']">
+UNDER REVIEW:  Your proposal is now being reviewed.
+  You will be notified when a decision is made.</div>
+<div id="proposerReview" tal:define="rs python: context.portal_workflow.getInfoFor(context, 'review_state');"
+tal:condition="python:rs in ['proposerReview']">
+REVIEW COMPLETED:  Review of your proposal has been completed.
+  You have either received official notification of the decision or will soon.</div>
+<div id="student 1" style="border-width: thin; border-bottom-style:solid;">
+<h3 style="text-align: center;">Student Proposer 1</h3>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">  <tbody>    <tr>      <td><label class="formQuestion"><span>
+Name</span>:</label>
+<span tal:content="context/proposerName"/><br/>
+<label class="formQuestion"><span>Student ID</span>:</label>
+<span tal:content="context/proposerId"/><br/>
+<label class="formQuestion"><span>Email</span>:</label>
+<span tal:content="context/proposerEmail"/></td>      <td><label class="formQuestion"><span>Mailing Address</span>:</label>
+<div tal:content ="context/proposerMailAddressLine1"/>
+<div tal:condition="context/proposerMailAddressLine2" tal:content="context/proposerMailAddressLine2"/>
+<span tal:content="context/proposerCity"/>,&nbsp;<span tal:content="context/proposerState"/>
+&nbsp;<span tal:content="context/proposerZip"/>
+</td>    </tr>  </tbody></table>
+</div>
+<div id="student 2" style="border-width: thin;  border-bottom-style:solid;" tal:condition="context/proposer2Name">
+<h3 style="text-align: center;">Student Proposer 2</h3>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">  <tbody>    <tr>      <td><label tal:condition="context/proposer2Name" class="formQuestion"><span>Name</span>:</label>
+<span tal:content="context/proposer2Name"/><br/>
+<label tal:condition="context/proposer2Id" class="formQuestion"><span>Student ID</span>:</label>
+<span tal:content="context/proposer2Id"/><br/>
+<label tal:condition="context/proposer2Email" class="formQuestion"><span>Email</span>:</label>
+<span tal:content="context/proposer2Email"/></td>      <td><div tal:condition="context/proposer2MailAddressLine1" id="proposer 2 mail"><label class="formQuestion"><span>Mailing Address</span>:</label>
+<div tal:condition="context/proposer2MailAddressLine1" tal:content ="context/proposer2MailAddressLine1"/>
+<div tal:condition="context/proposer2MailAddressLine2" tal:content="context/proposer2MailAddressLine2"/>
+<span tal:condition="context/proposer2City" tal:content="context/proposer2City"/>,&nbsp;
+<span tal:condition="context/proposer2State" tal:content="context/proposer2State"/>
+&nbsp;<span tal:condition="context/proposer2Zip" tal:content="context/proposer2Zip"/></div>
+	</td>    </tr>  </tbody></table>
+</div>
+<div id="primary advisor" style="border-width: thin;  border-bottom-style:solid;">
+<h3 style="text-align: center;">Primary Advisor</h3>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">  <tbody>    <tr>      <td><label class="formQuestion"><span>Name</span>:</label>
+<span tal:content="context/primaryFacultyAdvisorName"/><br/>
+<label class="formQuestion"><span>Account</span>:</label>
+<span tal:content="context/primaryFacultyAdvisorId"/><br/>
+</td>      <td><label class="formQuestion"><span>Email</span>:</label>
+<span tal:content="context/primaryFacultyAdvisorEmail"/><br/>
+<label class="formQuestion"><span>Department</span>:</label>
+<span tal:content="context/primaryFacultyAdvisorDept"/></td>    </tr>  </tbody></table>
+</div>
+<div id="additional advisors" style="border-width: thin;  border-bottom-style:solid;" tal:condition="context/facultyAdvisor2Name">
+<h3 style="text-align: center;">Additional Advisors</h3>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">  <tbody>    <tr>      <td><div id="advisor2" tal:condition="context/facultyAdvisor2Name">
+<label tal:condition="context/facultyAdvisor2Name" class="formQuestion"><span>Advisor 2 Name</span>:</label>
+<span tal:condition="context/facultyAdvisor2Name" tal:content="context/facultyAdvisor2Name"/></div></td>      <td><div id="adivsor3" tal:condition="context/facultyAdvisor3Name"><label tal:condition="context/facultyAdvisor3Name" class="formQuestion"><span>Advisor 3 Name</span>:</label>
+<span tal:condition="context/facultyAdvisor3Name" tal:content="context/facultyAdvisor3Name"/></div></td>    </tr>  </tbody></table>
+</div></div>
+<h3 tal:condition="context/abstract" style="text-align: center;" class="formQuestion"><span>Abstract</span>:</h3>
+<div tal:condition="context/abstract" tal:replace="structure context/abstract"/>
+<label tal:condition="context/studentIsPrimaryAuthor" class="formQuestion"><span>Student Is Primary Author</span>:</label>
+<span tal:condition="context/studentIsPrimaryAuthor" tal:content="context/studentIsPrimaryAuthor"/><br/>
+<label class="formQuestion"><span>Award Requested For</span>:</label>
+<span tal:content="context/awardTimeFrame"/>
+<div id="status" tal:define="temp1 python:string('uwosh.grants.reviewer');temp2 python:string('uwosh.grants.panel');lu python:user.getUserName();un python:user.getProperty('fullname', '');dir python:string('uwosh.grants.director');
+rs python: context.portal_workflow.getInfoFor(context, 'review_state');" tal:condition="python:((lu in here.listCreators()  or lu==here.primaryFacultyAdvisorId or un==here.primaryFacultyAdvisorName) and rs in ['proposerReview']) or dir in user.getRoles() or (temp2 in user.getRoles()  and rs in ['panelReview'])">
+<label class="formQuestion"><span>Proposal Status</span>:</label>
+<span tal:content="context/proposalApproved"/>
+</div>
+</metal:slot>
+</body>
+</html>

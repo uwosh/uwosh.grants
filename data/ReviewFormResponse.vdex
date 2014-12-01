@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vdex orderSignificant="false">
+      <vocabName>
+          <langstring language="en">Review Form Responses</langstring>
+     </vocabName>
+     <vocabIdentifier>ReviewFormResponse</vocabIdentifier>
+
+     <term>
+          <termIdentifier>0</termIdentifier>
+          <caption>
+               <langstring language="en">(Choose one)</langstring>
+          </caption>
+     </term>
+     <term>
+          <termIdentifier>1</termIdentifier>
+          <caption>
+               <langstring language="en">1. Inadequate: Criterion not met.</langstring>
+          </caption>
+     </term>
+     <term>
+          <termIdentifier>2</termIdentifier>
+          <caption>
+               <langstring language="en">2. Weak: Element has major deficiencies, minimal potential to achieve criterion.</langstring>
+          </caption>
+     </term>
+     <term>
+          <termIdentifier>3</termIdentifier>
+          <caption>
+	
+               <langstring language="en">3. Fair: Meets criterion but has deficiencies that should be addressed.</langstring>
+          </caption>
+     </term>
+     <term>
+          <termIdentifier>4</termIdentifier>
+          <caption>
+               <langstring language="en">4. Good: Criterion met, with minor deficiencies.</langstring>
+          </caption>
+     </term>
+     <term>
+          <termIdentifier>5</termIdentifier>
+          <caption>
+               <langstring language="en">5. Excellent: Criterion met or exceeded, with very strong potential.</langstring>
+          </caption>
+     </term>
+</vdex>

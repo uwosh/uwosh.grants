@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<site>
+ <property name="title">Undergraduate - Faculty Collaborative Grants Site</property>
+ <property name="description"></property>
+ <property name="selectable_views" type="lines">
+  <element value="folder_listing"/>
+  <element value="news_listing"/>
+ </property>
+ <property name="email_from_address"
+    type="string">nguyen+ugradfacgrants@uwosh.edu</property>
+ <property name="email_from_name"
+    type="string">UWO Internal Grants System</property>
+ <property name="validate_email" type="boolean">True</property>
+ <property name="email_charset" type="string">utf-8</property>
+ <property name="enable_permalink" type="boolean">False</property>
+ <property name="layout" type="string">folder_summary_view</property>
+ <property name="default_page" type="string">grants-welcome</property>
+<property name="uwosh_grants_default_type" type="string">UnderGraduateProposal</property>
+</site>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vdex orderSignificant="false">
+      <vocabName>
+          <langstring language="en">Review Form Holistic Responses</langstring>
+     </vocabName>
+     <vocabIdentifier>ReviewFormResponseHolistic</vocabIdentifier>
+
+     <term>
+          <termIdentifier>0</termIdentifier>
+          <caption>
+               <langstring language="en">(Choose one)</langstring>
+          </caption>
+     </term>
+     <term>
+          <termIdentifier>Strongly recommend for support</termIdentifier>
+          <caption>
+               <langstring language="en">Strongly recommend for support</langstring>
+          </caption>
+     </term>
+     <term>
+          <termIdentifier>Recommend for support if funds available</termIdentifier>
+          <caption>
+               <langstring language="en">Recommend for support if funds available</langstring>
+          </caption>
+     </term>
+     <term>
+          <termIdentifier>Not recommended for support</termIdentifier>
+          <caption>
+	
+               <langstring language="en">Not recommended for support</langstring>
+          </caption>
+     </term>
+</vdex>

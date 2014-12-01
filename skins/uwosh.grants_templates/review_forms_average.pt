@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<metal:block fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border',1)" />
+<body>
+<div metal:fill-slot="main">
+
+
+       
+			
+<dl id="history" class="collapsible inline expandedInlineCollapsible">
+        <dt class="collapsibleHeader">Average review values</dt>
+        <dd class="collapsibleContent">
+
+        <table class="listing" summary="Review Statistics">
+
+          <tbody><tr>
+            <th>Research Question or Creative Goal</th>
+            <th>Methodology and Design</th>
+            <th>Motivation</th>
+            <th>Feasibility</th>
+	    <th>Time Line</th>
+	    <th>Project Outcomes</th>
+	    <th>Proposal Quality and Clarity</th>
+	    <!--th>Holistic Evaluation</th-->
+          </tr>
+
+          
+            <tr class="odd">
+              <td><div tal:replace="here/avgResearchQuestionOrCreativeGoal">[average researchQuestionOrCreativeGoal</div></td>
+
+              <td><div tal:replace="here/avgMethodologyAndDesign">[average methodologyAndDesign</div></td> 
+
+              <td><div tal:replace="here/avgMotivation">[average motivation</div></td> 
+
+              <td><div tal:replace="here/avgFeasibility">[average feasibility</div></td> 
+
+              <td><div tal:replace="here/avgTimeline">[average timeline</div></td> 
+
+              <td><div tal:replace="here/avgProjectOutcomes">[average projectOutcomes</div></td> 
+
+              <td><div tal:replace="here/avgProposalQualityAndClarity">[average proposalQualityAndClarity</div></td> 
+
+<!--               <td><div tal:replace="here/avgHolisticEvaluation">[average holisticEvaluation</div></td>  -->
+
+        </tbody></table>
+
+        </dd>
+      </dl>
+
+
+
+
+</div>
+</body>
+</html>
+

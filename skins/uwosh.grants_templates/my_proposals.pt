@@ -1,0 +1,107 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<metal:block fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border',1)" />
+
+<body tal:define="DateTime python:modules['DateTime'].DateTime;">
+<div metal:fill-slot="main">
+
+    
+<tal:main-macro metal:define-macro="main"
+                    tal:define="author python:(len(request.traverse_subpath) > 0 and request.traverse_subpath[0]) or request.get('author', None);
+                                portrait python: mtool.getPersonalPortrait(author);
+                                authorinfo python: mtool.getMemberInfo(author);">
+
+       
+	<div><tal:recentlist tal:define="last_login_time python:member.getProperty('last_login_time', DateTime());
+					  authorinfo python: mtool.getMemberInfo(author);
+					  luser python:mtool.getAuthenticatedMember();
+				           user python:luser.getUserName();
+                                           results python:request.get('items',
+                                            here.portal_catalog.searchResults(sort_on='modified',
+                                            portal_type=['Proposal'],
+					    proposerId=user,
+                                            sort_order='reverse',
+                                            sort_limit=50)[:15]);">
+
+		<dl class="portlet" id="portlet-recent">
+		  
+		    <dt class="portletHeader">
+			<span class="portletTopLeft"></span>
+		       <!--  <a href="#" 
+			    tal:attributes="href string:${portal_url}/recently_modified"
+			    i18n:translate="box_recent_changes">Recent Changes</a> -->
+			<span class="portletTopRight"></span>
+		    </dt>
+        <table class="listing nosort" summary="Review History">
+
+          <tbody><tr>
+	    <th>Proposal</th>
+            <th>Research Question or Creative Goal</th>
+            <th>Methodology and Design</th>
+            <th>Motivation</th>
+            <th>Feasibility</th>
+	    <th>Time Line</th>
+	    <th>Project Outcomes</th>
+	    <th>Proposal Quality and Clarity</th>
+	    <!--th>Holistic Evaluation</th-->
+          </tr>
+
+          
+	  <tal:items tal:repeat="result results">
+
+            <tr class="odd" tal:define="obj result/getObject">
+              <td><a href="" tal:attributes="href obj/absolute_url" tal:content="obj/title_or_id">[link to proposal]</a></td>
+
+              <td><div tal:replace="obj/avgResearchQuestionOrCreativeGoal">average researchQuestionOrCreativeGoal</div></td>
+
+              <td><div tal:replace="obj/avgMethodologyAndDesign">average methodologyAndDesign</div></td> 
+
+              <td><div tal:replace="obj/avgMotivation">average motivation</div></td> 
+
+              <td><div tal:replace="obj/avgFeasibility">average feasibility</div></td> 
+
+              <td><div tal:replace="obj/avgTimeline">average timeline</div></td> 
+
+              <td><div tal:replace="obj/avgProjectOutcomes">average projectOutcomes</div></td> 
+
+              <td><div tal:replace="obj/avgProposalQualityAndClarity">average proposalQualityAndClarity</div></td> 
+
+<!--               <td><div tal:replace="view/avgHolisticEvaluation">[average holisticEvaluation</div></td>  -->
+
+
+
+		</tr>
+		</tal:items>
+
+        </tbody></table>
+
+		    <dd class="portletItem" 
+			tal:condition="not: results"
+			i18n:translate="box_recent_no_items">
+			No pending forms.
+		    </dd>
+
+		    <dd class="portletFooter">
+			  <!--<a href="#"
+			  class="tile"
+			   tal:attributes="href string:${portal_url}/recently_modified"
+			   i18n:translate="box_more_recently_changed">        All recent changes&hellip;
+			</a> -->
+			<span class="portletBottomLeft"></span>
+			<span class="portletBottomRight"></span>
+		    </dd>
+		</dl>
+
+	</tal:recentlist>
+    </div>
+    </tal:main-macro>
+
+
+</div>
+</body>
+</html>
+

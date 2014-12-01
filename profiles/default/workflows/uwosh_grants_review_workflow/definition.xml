@@ -1,0 +1,351 @@
+<?xml version="1.0"?>
+<dc-workflow workflow_id="uwosh_grants_review_workflow"
+             title="uwosh_grants_review_workflow"
+             state_variable="review_state"
+             initial_state="groupReview">
+ <permission>View</permission>
+ <permission>List folder contents</permission>
+ <permission>Access contents information</permission>
+ <permission>Modify portal content</permission>
+ <state state_id="archived"
+        title="archived">
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="View"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+ </state>
+
+ <state state_id="groupReview"
+        title="groupReview">
+  <exit-transition transition_id="sendToPanel"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>uwosh.grants.reviewer</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>uwosh.grants.reviewer</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>uwosh.grants.reviewer</permission-role>
+   <permission-role>uwosh.grants.director</permission-role>
+  </permission-map>
+  <permission-map name="Add portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>uwosh.grants.director</permission-role>
+  </permission-map>
+  <permission-map name="View"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="uwosh_grants: Add ReviewerForm"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+   <permission-map name="uwosh_grants: View proposer details"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="uwosh_grants: View faculty advisers"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="uwosh_grants: View instructions"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+ </state>
+ 
+
+ <state state_id="directorReview"
+        title="directorReview">
+  <exit-transition transition_id="sendToGroup"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>uwosh.grants.director</permission-role>
+  </permission-map>
+  <permission-map name="Add portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>uwosh.grants.director</permission-role>
+  </permission-map>
+  <permission-map name="View"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="uwosh_grants: Add ReviewerForm"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+   <permission-map name="uwosh_grants: View proposer details"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="uwosh_grants: View faculty advisers"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="uwosh_grants: View instructions"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+ </state>
+
+ <state state_id="panelReview"
+        title="panelReview">
+  <exit-transition transition_id="sendToProposer"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>uwosh.grants.panel</permission-role>
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>uwosh.grants.reviewer</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents"
+                  acquired="False">
+   <permission-role>uwosh.grants.panel</permission-role>
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>uwosh.grants.director</permission-role>
+  </permission-map>
+  <permission-map name="View"
+                  acquired="False">
+   <permission-role>uwosh.grants.panel</permission-role>
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>uwosh.grants.reviewer</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+   <permission-map name="uwosh_grants: View proposer details"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="uwosh_grants: View faculty advisers"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="uwosh_grants: View instructions"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="uwosh_grants: Set approved permission"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="uwosh_grants: Set reviewer permission"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+ </state>
+
+ <state state_id="proposerReview"
+        title="proposerReview">
+  <exit-transition transition_id="archive"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>uwosh.grants.reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="View"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>uwosh.grants.reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="uwosh_grants: View proposer details"
+                  acquired="False">
+   <permission-role>uwosh.grants.director</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
+  </permission-map>
+ </state>
+ <transition transition_id="archive"
+             title="archive"
+             new_state="archived"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">archive</action>
+  <guard>
+  <guard-role>uwosh.grants.director</guard-role>
+  </guard>
+ </transition>
+ <transition transition_id="reject"
+             title="reject"
+             new_state="private"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">reject</action>
+  <guard>
+  <guard-role>uwosh.grants.director</guard-role>
+  </guard>
+ </transition>
+ <transition transition_id="retract"
+             title="retract"
+             new_state="private"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">retract</action>
+  <guard>
+  <guard-role>uwosh.grants.director</guard-role>
+  </guard>
+ </transition>
+ <transition transition_id="sendToGroup"
+             title="sendToGroup"
+             new_state="groupReview"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">sendToGroup</action>
+  <guard>
+  <guard-role>uwosh.grants.director</guard-role>
+  </guard>
+ </transition>
+ <transition transition_id="sendToPanel"
+             title="sendToPanel"
+             new_state="panelReview"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">sendToPanel</action>
+  <guard>
+  <guard-role>uwosh.grants.director</guard-role>
+  </guard>
+ </transition>
+ <transition transition_id="sendToProposer"
+             title="sendToProposer"
+             new_state="proposerReview"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">sendToProposer</action>
+  <guard>
+  <guard-role>uwosh.grants.director</guard-role>
+  </guard>
+ </transition>
+
+ <variable variable_id="action" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>The last transition</description>
+  <default>
+   <expression>transition/getId|nothing</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="actor" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>The ID of the user who performed the last transition</description>
+  <default>
+   <expression>user/getId</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="comments" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Comments about the last transition</description>
+  <default>
+   <expression>python:state_change.kwargs.get('comment', '')</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="review_history" for_catalog="False"
+           for_status="False" update_always="False">
+  <description>Provides access to workflow history</description>
+  <default>
+   <expression>state_change/getHistory</expression>
+  </default>
+  <guard>
+   <guard-permission>Request review</guard-permission>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+ </variable>
+ <variable variable_id="time" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Time of the last transition</description>
+  <default>
+   <expression>state_change/getDateTime</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <!-- We dont use workflow scripts any more, we use subscribers -->
+</dc-workflow>

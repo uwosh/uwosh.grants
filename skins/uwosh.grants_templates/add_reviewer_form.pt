@@ -1,0 +1,19 @@
+<html metal:use-macro="context/@@standard_macros/page">
+<body>
+
+<metal:slot metal:fill-slot="body" i18n:domain="cmf_default">
+
+    
+<b>To add a Reviewer to the Reviewers list:</b><br/><br/>
+1) Click on the add reviewer link.<br/><br/>
+2) Enter the user name of the reviewer in the key field and the full name in the value field. <br/><br/>
+3) Click on save.<br/><br/>
+
+Click to <a href="" tal:attributes="href string:${here/portal_url}/portal_vocabularies/ProposalReviewers/createObject?type_name=SimpleVocabularyTerm">add reviewer</a>.<br/><br/>
+
+
+</metal:slot>
+
+</body>
+</html>
+

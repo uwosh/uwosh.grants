@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<import-steps>
+
+
+ <import-step 
+    id="uwosh_grants-Update-RoleMappings" 
+    handler="Products.uwosh_grants.setuphandlers.updateRoleMappings"
+    title="Update Workflow role mappings for uwosh_grants"
+    version="2008-11-12T15:25:18.681869">
+   <dependency step="uwosh_grants-QI-dependencies"/>
+   updates the workflow role mappings for uwosh_grants
+ </import-step>
+
+ <import-step 
+    id="uwosh_grants-postInstall" 
+    handler="Products.uwosh_grants.setuphandlers.postInstall"
+    title="manual coded post-install for uwosh_grants"
+    version="2008-11-12T15:25:18.681869">
+   <dependency step="uwosh_grants-QI-dependencies"/>
+   manual coded post-install for uwosh_grants
+ </import-step>
+
+ <import-step 
+    id="uwosh_grants--runthislast-Install-Vocabularies" 
+    handler="Products.uwosh_grants.setuphandlers.installVocabularies"
+    title="Install Vocabularies for uwosh_grants"
+    version="2008-11-12T15:25:18.681869">
+   <dependency step="uwosh_grants-QI-dependencies"/>
+   Installs the vocabulary files into vocabulary library for uwosh_grants
+ </import-step>
+
+<!-- ##code-section ADDITIONALSTEPS -->
+<!-- ##/code-section ADDITIONALSTEPS --> 
+
+</import-steps>
+ 

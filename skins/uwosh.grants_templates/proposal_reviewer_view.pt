@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<metal:block fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border',1)" />
+
+<body tal:define="DateTime python:modules['DateTime'].DateTime;">
+<div metal:fill-slot="main">
+
+<h1 id="parent-fieldname-title" class="documentFirstHeading kssattr-atfieldname-title kssattr-templateId-kss_generic_macros kssattr-macro-title-field-view" tal:content="context/Title"></h1>
+
+<label tal:condition="context/abstract" class="formQuestion"><span>Abstract</span>:</label>
+<div tal:condition="context/abstract" tal:content="context/abstract"/>
+<label tal:condition="context/studentIsPrimaryAuthor" class="formQuestion"><span>Student Is Primary Author</span>:</label>
+<div tal:condition="context/studentIsPrimaryAuthor" tal:content="context/studentIsPrimaryAuthor"/>
+
+</div>
+</body>
+</html>
+

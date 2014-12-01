@@ -1,0 +1,11 @@
+[default]
+title=Change Ownership of a Review Form
+proxy=Manager,uwosh.grants.director
+
+[validators]
+validators = 
+ 
+[actions]
+action.failure=traverse_to:string:view
+action.success=traverse_to:string:display_message
+

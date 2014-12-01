@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<object name="portal_workflow" meta_type="Plone Workflow Tool">
+ <object name="uwosh_grants_proposal_workflow" meta_type="Workflow"/>
+ <bindings>
+  <type type_id="Proposal">
+   <bound-workflow workflow_id="uwosh_grants_proposal_workflow" />
+  </type>
+ </bindings>
+ <object name="uwosh_grants_review_workflow" meta_type="Workflow"/>
+ <bindings>
+  <type type_id="ReviewerForm">
+   <bound-workflow workflow_id="uwosh_grants_review_workflow" />
+  </type>
+  <type type_id="ReviewerFormGrad">
+   <bound-workflow workflow_id="uwosh_grants_review_workflow" />
+  </type>
+ </bindings>
+</object>

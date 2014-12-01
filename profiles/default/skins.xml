@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<object name="portal_skins"
+        meta_type="Plone Skins Tool"
+        allow_any="False"
+        cookie_persistence="False"
+        request_varname="plone_skin">
+
+ <object name="uwosh.grants_images"
+         meta_type="Filesystem Directory View"
+         directory="uwosh_grants/skins/uwosh.grants_images"/>
+ <object name="uwosh.grants_styles"
+         meta_type="Filesystem Directory View"
+         directory="uwosh_grants/skins/uwosh.grants_styles"/>
+ <object name="uwosh.grants_templates"
+         meta_type="Filesystem Directory View"
+         directory="uwosh_grants/skins/uwosh.grants_templates"/>
+ 
+ <skin-path name="Plone Default">
+  <layer insert-after="custom" 
+         name="uwosh.grants_images"/>
+  <layer insert-after="custom" 
+         name="uwosh.grants_styles"/>
+  <layer insert-after="custom" 
+         name="uwosh.grants_templates"/>
+ </skin-path>
+
+</object>
